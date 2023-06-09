@@ -1,0 +1,21 @@
+{
+  "name": "chat-box",
+  "version": "1.0.0",
+  "description": "This is a chat box like messenger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon index.js"
+  },
+  "keywords": [
+    "chatbox"
+  ],
+  "author": "Krishna",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "ejs-layouts": "^0.0.1",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1"
+  }
+}

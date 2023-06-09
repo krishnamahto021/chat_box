@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<body>
+    <div id="center-all">
+        <div id="image-text-container">
+            <img id="entry-image" src="/images/entry_image.jpg" alt="entry_image">
+            <p id="para-text">
+                Connect To your Loved Ones!
+            </p>
+        </div>
+
+
+        <div class="view-form">
+            <div id="log-in-form">
+                <form action="/users/create-session" method="post">
+                    <input type="email" name="email" placeholder="Enter your Email" required>
+                    <input type="password" name="password" placeholder="Enter your Password" required>
+                    <button type="submit" id="log-in-btn">Log In</button>
+                </form>
+            </div>
+            <a href="/users/forgotten-password" id="forgotten-password">Forgotten Password?</a>
+
+            <div id="broken-line"></div>
+            <a href="/users/sign-up" id="create-account">Create Account</a>
+            <a href="/users/auth/google" id="create-account-google">Sign Up or Sign In using Google</a>
+        </div>
+
+    </div>
+
+
+</body>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/images/chat_box_fabicon.jpg">
+    <%-style%>
+    <title><%=title%></title>
+</head>
+<body>
+    <%if(typeof showHeaderAndFooter !== 'undefined' && showHeaderAndFooter){%>
+        <%- include('_header'); %>
+    <%}%>
+
+    <%-body%>
+
+    <%if(typeof showHeaderAndFooter !== 'undefined' && showHeaderAndFooter){%>
+        <%- include('_footer'); %>
+    <%}%>
+    
+<%-script%>
+</body>
+</html>
