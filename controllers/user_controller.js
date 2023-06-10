@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const userSignUpMailer = require('../mailers/sign_up_mailer');
 // to render sign up page
 module.exports.signUp = function(req,res){
     return res.render('sign_up',{
@@ -22,6 +23,7 @@ module.exports.create = async function(req,res){
             password:req.body.password,
         });
         // console.log(newUser);
+        userSignUpMailer.signUP(newUser);
         return res.redirect('/');
     }
 }
