@@ -12,10 +12,12 @@ module.exports.signUp = function(req,res){
 // to fetch data from the user
 module.exports.create = async function(req,res){
     if(req.body.password !== req.body.confirm_password){
+        req.flash('error','Password not Matched!')
         return res.redirect('back');
     }
     const user = await User.findOne({email:req.body.email});
     if(user){//if user already exists
+        req.flash('error','User Already exists');
         return res.redirect('/');
 
     }else{
@@ -25,12 +27,14 @@ module.exports.create = async function(req,res){
             password:req.body.password,
         });
         // console.log(newUser);
+        req.flash('success','Created Account Successfully!');
         userSignUpMailer.signUP(newUser);
         return res.redirect('/');
     }
 }
 
 module.exports.createSession = function(req,res){
+    req.flash('success','Login Successfully!');
     return res.redirect('/users/profile');
 }
 
@@ -55,6 +59,7 @@ module.exports.updatePasswordDataCollect = async function(req,res){
         const token = crypto.randomBytes(20).toString('hex');
         user.token = token;
         await user.save();
+        req.flash('success','Reset Email Sent');
         forgottenPasswordMailer.forgottenPassword(user,token);
 
         return res.redirect('/');
@@ -84,6 +89,7 @@ module.exports.updatePassword = async function(req,res){
     if(user){
         user.password = req.body.password;
         await user.save();
+        req.flash('success','Updated Password Successfully!');
         return res.redirect('/');
     }else{
         return res.redirect('/');

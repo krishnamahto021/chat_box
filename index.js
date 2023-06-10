@@ -9,6 +9,10 @@ const LocalStrategy = require('passport-local').Strategy;
 // to set layouts
 app.use(layouts);
 
+// set up the connect flash
+const connectFlash = require('connect-flash');
+const customMware = require('./config/middleware');
+
 // to set urlencoded
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -58,6 +62,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+
+// using connect flash to show notifications
+app.use(connectFlash());
+app.use(customMware.setFlash);
 
 app.use('/',require('./routes'));
 
