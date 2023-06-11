@@ -4,6 +4,9 @@ const forgottenPasswordMailer = require('../mailers/forgotten_password_mailer');
 const crypto = require('crypto');
 // to render sign up page
 module.exports.signUp = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('sign_up',{
         title:'Create Account'
     })
