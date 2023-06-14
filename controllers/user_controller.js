@@ -42,8 +42,8 @@ module.exports.createSession = function(req,res){
 }
 
 module.exports.userProfile = function(req,res){
-    return res.render('user_profile',{
-        title:'User Profile'
+    return res.render('chat_box',{
+        title:'Chat'
     });
 };
 

@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/chat_box.css">
+<body>
+    <div id="chat-box">
+        <div id="head">
+            <span id="name-of-user"><%=locals.user.name%></span>
+        </div>
+        <span id="self">hello hi bye bye</span>
+        <span id="other">Hi hlo</span>
+
+        <form action="/create-message" method="post" id="send-message-form">
+            <input type="text" name="message" required>
+            <button type="submit">Send</button>
+        </form>
+
+    </div>
+</body>
