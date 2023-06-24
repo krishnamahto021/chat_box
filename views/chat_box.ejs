@@ -1,17 +1,22 @@
 <link rel="stylesheet" href="/css/chat_box.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="http://127.0.0.1:5000/socket.io/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
 
 <body>
-    <div class="container">
+    <div id="container">
         <div class="message right">Krishna: hey how are you ahgoaog an aovh adfa voafa goah v</div>
         <div class="message left">Rohan: hello</div>
 
         <form action="#" id="send-container">
             <input type="text" name="messageInp" id="messageInp" placeholder="Type a message">
-            <button class="btn" type="submit">Send</button>
+            <button class="btn" type="submit" id="send-message-btn">Send</button>
         </form>
 
     </div>
 
 
-
+<script>
+    new ChatEngine('container','<%=locals.user.name%>');
+</script>
 </body>

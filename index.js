@@ -4,7 +4,9 @@ const port = 8000;
 const layouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const LocalStrategy = require('passport-local').Strategy;
+
 
 // to set layouts
 app.use(layouts);
@@ -26,7 +28,11 @@ app.set('layout extractScripts',true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
-
+// setup the chat server to be used with the socket.io
+const chatServer = require('http').Server(app);
+const chatSockets = require('./config/chat_socket').chatSockets(chatServer);
+chatServer.listen(5000);
+console.log('chat server is listenning on port : 5000');
 
 
 
